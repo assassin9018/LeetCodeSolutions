@@ -1,18 +1,18 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Hard;
-internal class S0023 : IIssueSolution
+public class S0023 : SolutionBase
 {
-    public int Number => 23;
+    public override int Number => 23;
 
-    public string Name => "Merge k Sorted Lists";
+    public override string Name => "Merge k Sorted Lists";
 
-    public void Run()
+    public override void Run()
     {
-        int listsCount = ReadInt("Введите кол-во списков");
+        int listsCount = _reader.ReadInt("Введите кол-во списков");
         ListNode[] nodes = new ListNode[listsCount];
-        for (int i = 0; i < listsCount; i++)
-            nodes[i] = ReadLinkedList("Введите отсортированный по возврастанию список");
+        for(int i = 0; i < listsCount; i++)
+            nodes[i] = _reader.ReadLinkedList("Введите отсортированный по возврастанию список");
 
         MergeKLists(nodes).ToConsole();
     }
@@ -21,12 +21,12 @@ internal class S0023 : IIssueSolution
     {
         ListNode head = RemoveMin(lists)!;
         ListNode? current = head;
-        if (current != null)
+        if(current != null)
             do
             {
                 current.next = RemoveMin(lists);
                 current = current.next;
-            } while (current != null);
+            } while(current != null);
         return head;
     }
 
@@ -34,16 +34,16 @@ internal class S0023 : IIssueSolution
     {
         int index = -1;
         ListNode? min = null;
-        for (int i = 0; i < lists.Length; i++)
+        for(int i = 0; i < lists.Length; i++)
         {
             ListNode? current = lists[i];
-            if (current != null && !(current.val > min?.val))
+            if(current != null && !(current.val > min?.val))
             {
                 min = current;
                 index = i;
             }
         }
-        if (index >= 0)
+        if(index >= 0)
         {
             lists[index] = min!.next;
         }
@@ -51,7 +51,7 @@ internal class S0023 : IIssueSolution
         return min;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Input: lists = [[1,4,5],[1,3,4],[2,6]]
 Output: [1,1,2,3,4,4,5,6]
 Explanation: The linked-lists are:

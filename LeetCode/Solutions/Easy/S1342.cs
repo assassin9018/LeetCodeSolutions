@@ -1,21 +1,21 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S1342 : IIssueSolution
+public class S1342 : SolutionBase
 {
-    public int Number => 1342;
+    public override int Number => 1342;
 
-    public string Name => "Number of Steps to Reduce a Number to Zero";
+    public override string Name => "Number of Steps to Reduce a Number to Zero";
 
-    public void Run()
+    public override void Run()
     {
-        int value = ReadInt();
+        int value = _reader.ReadInt();
         Console.WriteLine(NumberOfSteps(value));
     }
 
     public static int NumberOfSteps(int num)
     {
         int count = 0;
-        while (num > 0)
+        while(num > 0)
         {
             num = (num & 1) == 1 ? num - 1 : num / 2;
             count++;
@@ -23,7 +23,7 @@ internal class S1342 : IIssueSolution
         return count;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Given an integer num, return the number of steps to reduce it to zero.
 
 In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.

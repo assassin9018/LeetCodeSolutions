@@ -2,7 +2,7 @@
 
 namespace LeetCode;
 
-internal class SolutionsFactory
+public class SolutionsFactory
 {
     public SolutionsFactory()
     {

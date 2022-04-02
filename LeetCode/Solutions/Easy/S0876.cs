@@ -1,15 +1,15 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Easy;
-internal class S0876 : IIssueSolution
+public class S0876 : SolutionBase
 {
-    public int Number => 876;
+    public override int Number => 876;
 
-    public string Name => "Middle of the Linked List";
+    public override string Name => "Middle of the Linked List";
 
-    public void Run()
+    public override void Run()
     {
-        ListNode? head = ReadLinkedList();
+        ListNode? head = _reader.ReadLinkedList();
         head = MiddleNode(head);
         head.ToConsole();
     }
@@ -23,7 +23,7 @@ internal class S0876 : IIssueSolution
     {
         int i = 0;
         var h = head;
-        while (h != null)
+        while(h != null)
         {
             i++;
             h = h.next;
@@ -33,12 +33,12 @@ internal class S0876 : IIssueSolution
 
     public static ListNode GoTo(ListNode head, int index)
     {
-        for (int i = 0; i < index; i++)
+        for(int i = 0; i < index; i++)
             head = head.next!;
         return head;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Given the head of a singly linked list, return the middle node of the linked list.
 
 If there are two middle nodes, return the second middle node.

@@ -1,29 +1,29 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S0412 : IIssueSolution
+public class S0412 : SolutionBase
 {
-    public int Number => 412;
+    public override int Number => 412;
 
-    public string Name => "Fizz Buzz";
+    public override string Name => "Fizz Buzz";
 
-    public void Run()
+    public override void Run()
     {
-        int n = ReadInt();
-        foreach (string s in FizzBuzz(n))
+        int n = _reader.ReadInt();
+        foreach(string s in FizzBuzz(n))
             Console.WriteLine(s);
     }
 
     public IList<string> FizzBuzz(int n)
     {
         List<string> list = new(n++);
-        for (int i = 1; i < n; i++)
+        for(int i = 1; i < n; i++)
         {
             bool byTree = i % 3 == 0, byFive = i % 5 == 0;
-            if (byTree && byFive)
+            if(byTree && byFive)
                 list.Add("FizzBuzz");
-            else if (byTree)
+            else if(byTree)
                 list.Add("Fizz");
-            else if (byFive)
+            else if(byFive)
                 list.Add("Buzz");
             else
                 list.Add(i.ToString());
@@ -31,7 +31,7 @@ internal class S0412 : IIssueSolution
         return list;
     }
 
-    public string Decription => @"Given an integer n, return a string array answer (1-indexed) where:
+    public override string Decription => @"Given an integer n, return a string array answer (1-indexed) where:
 
 answer[i] == 'FizzBuzz' if i is divisible by 3 and 5.
 answer[i] == 'Fizz' if i is divisible by 3.

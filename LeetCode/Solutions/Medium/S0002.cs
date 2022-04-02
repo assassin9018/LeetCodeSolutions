@@ -1,27 +1,27 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Medium;
-internal class S0002 : IIssueSolution
+public class S0002 : SolutionBase
 {
-    public int Number => 2;
+    public override int Number => 2;
 
-    public string Name => "Add Two Numbers";
+    public override string Name => "Add Two Numbers";
 
-    public void Run()
+    public override void Run()
     {
-        var first = ReadLinkedList();
-        var second = ReadLinkedList();
+        var first = _reader.ReadLinkedList();
+        var second = _reader.ReadLinkedList();
         AddTwoNumbers(first, second).ToConsole();
     }
     public ListNode AddTwoNumbers(ListNode l1, ListNode? l2)
     {
         var head = l1!;
         int addition = 0;
-        while (l1.next != null && l2 != null)
+        while(l1.next != null && l2 != null)
         {
             int sum = l1.val + l2.val + addition;
             addition = 0;
-            if (sum >= 10)
+            if(sum >= 10)
             {
                 addition = sum / 10;
                 sum %= 10;
@@ -34,28 +34,28 @@ internal class S0002 : IIssueSolution
         l2 = l2?.next;
         if(l1.next is null)
             l1.next = l2;
-        while (addition > 0)
+        while(addition > 0)
         {
             int sum = l1.val + addition;
             addition = 0;
-            if (sum >= 10)
+            if(sum >= 10)
             {
                 addition = sum / 10;
                 sum %= 10;
             }
             l1.val = sum;
-            if (l1.next is null)
+            if(l1.next is null)
                 break;
             l1 = l1.next;
         }
-        if (addition > 0)
+        if(addition > 0)
         {
             l1.next = new ListNode(addition, null);
         }
         return head;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
 
 You may assume the two numbers do not contain any leading zero, except the number 0 itself.

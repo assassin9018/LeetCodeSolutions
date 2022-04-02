@@ -1,13 +1,13 @@
 ﻿namespace LeetCode.Solutions.Easy
 {
-    internal class S1365 : IIssueSolution
+    public class S1365 : SolutionBase
     {
-        public int Number => 1365;
-        public string Name => "How Many Numbers Are Smaller Than the Current Number";
+        public override int Number => 1365;
+        public override string Name => "How Many Numbers Are Smaller Than the Current Number";
 
-        public void Run()
+        public override void Run()
         {
-            var arr = ReadArray();
+            var arr = _reader.ReadArray();
             arr = SmallerNumbersThanCurrent(arr);
             foreach(int x in arr)
                 Console.WriteLine(x);
@@ -18,7 +18,7 @@
             return nums.Select(x => nums.Count(n => x > n)).ToArray();
         }
 
-        public string Decription =>
+        public override string Decription =>
 @"Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 
 Return the answer in an array.

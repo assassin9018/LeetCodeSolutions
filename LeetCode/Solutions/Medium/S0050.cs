@@ -1,15 +1,15 @@
 ﻿namespace LeetCode.Solutions.Medium;
 
-internal class S0050 : IIssueSolution
+public class S0050 : SolutionBase
 {
-    public int Number => 50;
+    public override int Number => 50;
 
-    public string Name => "Pow(x, n)";
+    public override string Name => "Pow(x, n)";
 
-    public void Run()
+    public override void Run()
     {
-        double x = ReadDouble();
-        int n = ReadInt();
+        double x = _reader.ReadDouble();
+        int n = _reader.ReadInt();
         Console.WriteLine(MyPow(x, n));
     }
     private double MyPow(double x, int n)
@@ -21,7 +21,7 @@ internal class S0050 : IIssueSolution
         return result * sign;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
 
 Example 1:

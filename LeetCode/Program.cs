@@ -1,6 +1,4 @@
-﻿global using static LeetCode.ConsoleReadHelper;
-
-namespace LeetCode;
+﻿namespace LeetCode;
 
 public class Program
 {
@@ -9,12 +7,12 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Select task number or enter -list for show all task numbers.");
-        while (true)
+        while(true)
         {
             string? command = Console.ReadLine();
-            if (command is null)
+            if(command is null)
                 continue;
-            if (command.Equals("-list", StringComparison.OrdinalIgnoreCase))
+            if(command.Equals("-list", StringComparison.OrdinalIgnoreCase))
                 ShowSolutionsList();
             else
                 TryExecuteSolution(command);
@@ -23,14 +21,21 @@ public class Program
 
     private static void ShowSolutionsList()
     {
-        foreach (var solution in _solutions.Values)
+        foreach(var solution in _solutions.Values)
             Console.WriteLine($"{solution.Number} {solution.Name}");
     }
 
     private static void TryExecuteSolution(string command)
     {
-        if (!int.TryParse(command, out int solutionId) || !_solutions.TryGetValue(solutionId, out IIssueSolution? solution))
+        if(!int.TryParse(command, out int solutionId) || !_solutions.TryGetValue(solutionId, out IIssueSolution? solution))
             return;
-        solution.Run();
+        try
+        {
+            solution.Run();
+        }
+        catch
+        {
+            Console.WriteLine("Something went wrong");
+        }
     }
 }

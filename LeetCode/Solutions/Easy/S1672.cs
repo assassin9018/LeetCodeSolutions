@@ -1,13 +1,13 @@
 ﻿namespace LeetCode.Solutions.Easy;
-internal class S1672 : IIssueSolution
+public class S1672 : SolutionBase
 {
-    public int Number => 1672;
+    public override int Number => 1672;
 
-    public string Name => "Richest Customer Wealth";
+    public override string Name => "Richest Customer Wealth";
 
-    public void Run()
+    public override void Run()
     {
-        int[][] accounts = Read2Array();
+        int[][] accounts = _reader.Read2Array();
         Console.WriteLine(MaximumWealth(accounts));
     }
 
@@ -16,7 +16,7 @@ internal class S1672 : IIssueSolution
         return accounts.Select(x => x.Sum()).Max();
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.
 
 A customer's wealth is the amount of money they have in all their bank accounts. The richest customer is the customer that has the maximum wealth.

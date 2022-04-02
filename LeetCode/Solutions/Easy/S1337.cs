@@ -1,14 +1,14 @@
 ﻿namespace LeetCode.Solutions.Easy;
-internal class S1337 : IIssueSolution
+public class S1337 : SolutionBase
 {
-    public int Number => 1337;
+    public override int Number => 1337;
 
-    public string Name => "The K Weakest Rows in a Matrix";
+    public override string Name => "The K Weakest Rows in a Matrix";
 
-    public void Run()
+    public override void Run()
     {
-        var mat = Read2Array();
-        int k = ReadInt();
+        var mat = _reader.Read2Array();
+        int k = _reader.ReadInt();
         Console.WriteLine(KWeakestRows(mat, k));
     }
 
@@ -24,7 +24,7 @@ internal class S1337 : IIssueSolution
            .ToArray();
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"You are given an m x n binary matrix mat of 1's (representing soldiers) and 0's (representing civilians). The soldiers are positioned in front of the civilians. That is, all the 1's will appear to the left of all the 0's in each row.
 
 A row i is weaker than a row j if one of the following is true:

@@ -14,7 +14,7 @@ public class ListNode
     public void ToConsole()
     {
         ListNode? head = this;
-        while (head != null)
+        while(head != null)
         {
             Console.Write(head.val);
             head = head.next;

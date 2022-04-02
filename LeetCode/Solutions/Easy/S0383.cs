@@ -1,12 +1,12 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S0383 : IIssueSolution
+public class S0383 : SolutionBase
 {
-    public int Number => 383;
+    public override int Number => 383;
 
-    public string Name => "Ransom Note";
+    public override string Name => "Ransom Note";
 
-    public void Run()
+    public override void Run()
     {
         string ransomNote = Console.ReadLine() ?? throw new ArgumentNullException();
         string magazine = Console.ReadLine() ?? throw new ArgumentNullException();
@@ -22,7 +22,7 @@ internal class S0383 : IIssueSolution
     private static IEnumerable<(char symbol, int count)> GroupBy(string s)
         => s.GroupBy(k => k).Select(x => (x.Key, x.Count()));
 
-    public string Decription =>
+    public override string Decription =>
 @"Given two strings ransomNote and magazine, return true if ransomNote can be constructed from magazine and false otherwise.
 
 Each letter in magazine can only be used once in ransomNote.

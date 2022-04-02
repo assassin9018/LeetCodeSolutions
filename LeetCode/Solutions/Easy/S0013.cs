@@ -1,21 +1,21 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S0013 : IIssueSolution
+public class S0013 : SolutionBase
 {
-    public int Number => 13;
+    public override int Number => 13;
 
-    public string Name => "Roman to Integer";
+    public override string Name => "Roman to Integer";
 
-    public void Run()
+    public override void Run()
     {
         string s = Console.ReadLine() ?? throw new ArgumentNullException();
         int value = 0;
         Roman last = Roman.None;
-        for (int i = s.Length - 1; i >= 0; i--)
+        for(int i = s.Length - 1; i >= 0; i--)
         {
             char c = s[i];
             Roman current = CharToRoman(c);
-            if (current >= last)
+            if(current >= last)
                 value += (int)current;
             else
                 value -= (int)current;
@@ -51,7 +51,7 @@ internal class S0013 : IIssueSolution
         M = 1000,
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value

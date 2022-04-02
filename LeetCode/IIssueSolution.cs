@@ -1,6 +1,6 @@
 ﻿namespace LeetCode;
 
-internal interface IIssueSolution
+public interface IIssueSolution
 {
     int Number { get; }
     string Name { get; }

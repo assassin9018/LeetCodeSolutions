@@ -2,15 +2,15 @@
 
 namespace LeetCode.Solutions.Easy;
 
-internal class S0234 : IIssueSolution
+public class S0234 : SolutionBase
 {
-    public int Number => 234;
+    public override int Number => 234;
 
-    public string Name => "Palindrome Linked List";
+    public override string Name => "Palindrome Linked List";
 
-    public void Run()
+    public override void Run()
     {
-        ListNode head = ReadLinkedList();
+        ListNode head = _reader.ReadLinkedList();
         Console.WriteLine(IsPalindrome(head));
     }
 
@@ -19,7 +19,7 @@ internal class S0234 : IIssueSolution
         byte[] bytes = GetArray(head);
         bool isTrue = true;
         int middle = bytes.Length / 2;
-        for (int i = 0; i < middle && isTrue; i++)
+        for(int i = 0; i < middle && isTrue; i++)
             isTrue = bytes[i] == bytes[bytes.Length - i - 1];
 
         return isTrue;
@@ -29,7 +29,7 @@ internal class S0234 : IIssueSolution
     {
         int length = Count(head);
         byte[] bytes = new byte[length];
-        for (int i = 0; i < bytes.Length; i++)
+        for(int i = 0; i < bytes.Length; i++)
         {
             bytes[i] = (byte)head!.val;
             head = head.next!;
@@ -41,7 +41,7 @@ internal class S0234 : IIssueSolution
     {
         int i = 0;
         var h = head;
-        while (h != null)
+        while(h != null)
         {
             i++;
             h = h.next;
@@ -49,7 +49,7 @@ internal class S0234 : IIssueSolution
         return i;
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Given the head of a singly linked list, return true if it is a palindrome.
 
 Example 1:

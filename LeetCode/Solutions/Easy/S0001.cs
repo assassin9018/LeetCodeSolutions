@@ -1,31 +1,31 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S0001 : IIssueSolution
+public class S0001 : SolutionBase
 {
-    public int Number => 1;
+    public override int Number => 1;
 
-    public string Name => "Two Sum";
+    public override string Name => "Two Sum";
 
-    public void Run()
+    public override void Run()
     {
-        var nums = ReadArray("nums");
-        int target = ReadInt("target");
+        var nums = _reader.ReadArray("nums");
+        int target = _reader.ReadInt("target");
         var twoSum = TwoSum(nums, target);
         Console.WriteLine($"{twoSum[0]} {twoSum[1]}");
     }
 
     public static int[] TwoSum(int[] nums, int target)
     {
-        for (int i = 0; i < nums.Length; i++)
-            for (int j = i + 1; j < nums.Length; j++)
+        for(int i = 0; i < nums.Length; i++)
+            for(int j = i + 1; j < nums.Length; j++)
             {
-                if (nums[i] + nums[j] == target)
+                if(nums[i] + nums[j] == target)
                     return new[] { i, j };
             }
         return new[] { -1, -1 };
     }
 
-    public string Decription =>
+    public override string Decription =>
 @"Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
