@@ -3,6 +3,16 @@
 namespace LeetCode;
 internal static class ConsoleReadHelper
 {
+    public static string ReadStr(string? message = null)
+    {
+        if (message is null)
+            message = "Введите строку";
+
+        Console.WriteLine(message);
+
+        return Console.ReadLine()!;
+    }
+
     public static int ReadInt(string? message = null)
     {
         if (message is null)
