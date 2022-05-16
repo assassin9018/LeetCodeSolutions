@@ -38,6 +38,8 @@ internal class S0008 : IIssueSolution
             index = 1;
             modifier = -1;
         }
+        else if (source[0] == '+')
+            index = 1;
         char current = default;
         try
         {
@@ -46,7 +48,7 @@ internal class S0008 : IIssueSolution
                 while (index < source.Length && char.IsDigit(current = source[index++]))
                 {
                     int val = int.Parse(current.ToString());
-                    if (val > 0)
+                    if (val != 0 || result > 0)
                         result = result * 10 + val;
                 }
 
