@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LeetCode.Solutions.Medium;
+﻿namespace LeetCode.Solutions.Medium;
 internal class S0008 : IIssueSolution
 {
     public int Number => 8;
@@ -61,7 +55,7 @@ internal class S0008 : IIssueSolution
         }
     }
 
-    public string Decription 
+    public string Decription
         => @"Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
 
 The algorithm for myAtoi(string s) is as follows:
