@@ -46,14 +46,24 @@ internal static class ConsoleReadHelper
         return array;
     }
 
-    public static int[] ReadArray(string? message = null)
+    public static int[] ReadArray(string? message = null, Func<int[], bool>? filter = null)
     {
         if (message is null)
             message = "Введите массив (пр: 1,2,3)";
 
         Console.WriteLine(message);
-
-        return Console.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray() ?? throw new ArgumentNullException();
+        int[]? result = null;
+        while (result is null || !(filter?.Invoke(result) ?? true))
+        {
+            try
+            {
+                result = Console.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray();
+            }
+            catch { }
+            if (result is null)
+                Console.WriteLine($"Не корректный ввод данных.\n{message}");
+        }
+        return result;
     }
 
     public static ListNode ReadLinkedList(string? message = null)
