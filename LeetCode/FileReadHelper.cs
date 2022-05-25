@@ -33,7 +33,7 @@ namespace LeetCode
 
         public int[] ReadArray(string? message = null, Func<int[], bool>? _ = null)
         {
-            return _streamReader.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray() ?? throw new ArgumentNullException();
+            return _streamReader.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray() ?? throw new ArgumentNullException(nameof(_streamReader), "End of stream.");
         }
 
         public ListNode ReadLinkedList(string? message = null)

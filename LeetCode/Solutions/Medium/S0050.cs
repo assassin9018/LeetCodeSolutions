@@ -12,7 +12,7 @@ public class S0050 : SolutionBase
         int n = _reader.ReadInt();
         Console.WriteLine(MyPow(x, n));
     }
-    private double MyPow(double x, int n)
+    private static double MyPow(double x, int n)
     {
         double value = Math.Abs(x);
         double sign = (n & 1) == 0 ? 1 : Math.Sign(x);

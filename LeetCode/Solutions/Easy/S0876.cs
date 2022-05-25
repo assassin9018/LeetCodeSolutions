@@ -14,10 +14,8 @@ public class S0876 : SolutionBase
         head.ToConsole();
     }
 
-    public ListNode MiddleNode(ListNode head)
-    {
-        return GoTo(head, Count(head) / 2);
-    }
+    public static ListNode MiddleNode(ListNode head) 
+        => GoTo(head, Count(head) / 2);
 
     public static int Count(ListNode head)
     {

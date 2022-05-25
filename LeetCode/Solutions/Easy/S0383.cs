@@ -13,7 +13,7 @@ public class S0383 : SolutionBase
         Console.WriteLine(CanConstruct(ransomNote, magazine));
     }
 
-    public bool CanConstruct(string ransomNote, string magazine)
+    public static bool CanConstruct(string ransomNote, string magazine)
     {
         var dick = GroupBy(magazine).ToDictionary(k => k.symbol, v => v.count);
         return GroupBy(ransomNote).All(x => dick.TryGetValue(x.symbol, out int mCount) && mCount >= x.count);

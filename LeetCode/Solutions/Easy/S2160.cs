@@ -8,10 +8,10 @@ public class S2160 : SolutionBase
     public override void Run()
     {
         int num = _reader.ReadInt("1000 <= num >= 9999");
-        Console.WriteLine(minimumSum(num));
+        Console.WriteLine(MinimumSum(num));
     }
 
-    private static int minimumSum(int num)
+    private static int MinimumSum(int num)
     {
         int[] arr = num.ToString().Select(x => int.Parse(x.ToString())).Where(x => x != 0).OrderBy(x => x).ToArray();
         int a = arr.Length > 2 ? arr[0] * 10 + arr[^1] : arr[0];

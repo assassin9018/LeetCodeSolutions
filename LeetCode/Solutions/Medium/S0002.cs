@@ -13,7 +13,7 @@ public class S0002 : SolutionBase
         var second = _reader.ReadLinkedList();
         AddTwoNumbers(first, second).ToConsole();
     }
-    public ListNode AddTwoNumbers(ListNode l1, ListNode? l2)
+    public static ListNode AddTwoNumbers(ListNode l1, ListNode? l2)
     {
         var head = l1!;
         int addition = 0;

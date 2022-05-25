@@ -17,7 +17,7 @@ public class S0023 : SolutionBase
         MergeKLists(nodes).ToConsole();
     }
 
-    public ListNode MergeKLists(ListNode[] lists)
+    public static ListNode MergeKLists(ListNode[] lists)
     {
         ListNode head = RemoveMin(lists)!;
         ListNode? current = head;
@@ -30,7 +30,7 @@ public class S0023 : SolutionBase
         return head;
     }
 
-    private ListNode? RemoveMin(ListNode?[] lists)
+    private static ListNode? RemoveMin(ListNode?[] lists)
     {
         int index = -1;
         ListNode? min = null;

@@ -13,7 +13,7 @@ public class S0412 : SolutionBase
             Console.WriteLine(s);
     }
 
-    public IList<string> FizzBuzz(int n)
+    public static IList<string> FizzBuzz(int n)
     {
         List<string> list = new(n++);
         for(int i = 1; i < n; i++)
