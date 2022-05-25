@@ -4,7 +4,7 @@ namespace LeetCode;
 
 public class ConsoleReadHelper : IReadHelper
 {
-    public static string ReadStr(string? message = null)
+    public string ReadStr(string? message = null)
     {
         if (message is null)
             message = "Введите строку";

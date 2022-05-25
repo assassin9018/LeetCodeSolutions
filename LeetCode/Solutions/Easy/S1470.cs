@@ -1,14 +1,14 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S1470 : IIssueSolution
+internal class S1470 : SolutionBase
 {
-    public int Number => 1470;
+    public override int Number => 1470;
 
-    public string Name => "Shuffle the Array";
+    public override string Name => "Shuffle the Array";
 
-    public void Run()
+    public override void Run()
     {
-        int[] arr = ReadArray("Введите массив с чётным количество эллементов", (arr)=> arr.Length % 2 == 0);
+        int[] arr = _reader.ReadArray("Введите массив с чётным количество эллементов", (arr)=> arr.Length % 2 == 0);
         arr = Shuffle(arr, arr.Length / 2);
         Console.WriteLine(string.Join(',', arr.Select(x => x.ToString())));
     }
@@ -24,7 +24,7 @@ internal class S1470 : IIssueSolution
         return result;
     }
 
-    public string Decription => @"Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+    public override string Decription => @"Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
 
 Return the array in the form [x1,y1,x2,y2,...,xn,yn].
 

@@ -1,13 +1,13 @@
 ﻿namespace LeetCode.Solutions.Medium;
-internal class S0008 : IIssueSolution
+internal class S0008 : SolutionBase
 {
-    public int Number => 8;
+    public override int Number => 8;
 
-    public string Name => "String to Integer (atoi)";
+    public override string Name => "String to Integer (atoi)";
 
-    public void Run()
+    public override void Run()
     {
-        string str = ReadStr();
+        string str = _reader.ReadStr();
         int result = MyAtoi(str);
         Console.WriteLine(result);
     }
@@ -55,7 +55,7 @@ internal class S0008 : IIssueSolution
         }
     }
 
-    public string Decription
+    public override string Decription
         => @"Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
 
 The algorithm for myAtoi(string s) is as follows:
