@@ -4,6 +4,16 @@ namespace LeetCode;
 
 public class ConsoleReadHelper : IReadHelper
 {
+    public static string ReadStr(string? message = null)
+    {
+        if (message is null)
+            message = "Введите строку";
+
+        Console.WriteLine(message);
+
+        return Console.ReadLine()!;
+    }
+
     public int ReadInt(string? message = null)
     {
         if(message is null)
@@ -37,14 +47,24 @@ public class ConsoleReadHelper : IReadHelper
         return array;
     }
 
-    public int[] ReadArray(string? message = null)
+    public int[] ReadArray(string? message = null, Func<int[], bool>? filter = null)
     {
         if(message is null)
             message = "Введите массив (пр: 1,2,3)";
 
         Console.WriteLine(message);
-
-        return Console.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray() ?? throw new ArgumentNullException();
+        int[]? result = null;
+        while (result is null || !(filter?.Invoke(result) ?? true))
+        {
+            try
+            {
+                result = Console.ReadLine()?.Split(',').Select(x => int.Parse(x)).ToArray();
+            }
+            catch { }
+            if (result is null)
+                Console.WriteLine($"Не корректный ввод данных.\n{message}");
+        }
+        return result;
     }
 
     public ListNode ReadLinkedList(string? message = null)
