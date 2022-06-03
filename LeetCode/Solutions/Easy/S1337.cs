@@ -1,15 +1,16 @@
 ﻿namespace LeetCode.Solutions.Easy;
-public class S1337 : SolutionBase
+
+public class S1337 : EnumerableResultSolution<int>
 {
     public override int Number => 1337;
 
     public override string Name => "The K Weakest Rows in a Matrix";
 
-    public override void Run()
+    private protected override Func<IEnumerable<int>> CreateExecutionMethod()
     {
         var mat = _reader.Read2Array();
         int k = _reader.ReadInt();
-        Console.WriteLine(KWeakestRows(mat, k));
+        return () => KWeakestRows(mat, k);
     }
 
     private static int[] KWeakestRows(int[][] mat, int k)

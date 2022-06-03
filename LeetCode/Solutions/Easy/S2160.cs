@@ -1,14 +1,14 @@
 ﻿namespace LeetCode.Solutions.Easy;
-public class S2160 : SolutionBase
+public class S2160 : SingleResultSolution<int>
 {
     public override int Number => 2160;
 
     public override string Name => "Minimum Sum of Four Digit Number After Splitting Digits";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
         int num = _reader.ReadInt("1000 <= num >= 9999");
-        Console.WriteLine(MinimumSum(num));
+        return () => MinimumSum(num);
     }
 
     private static int MinimumSum(int num)

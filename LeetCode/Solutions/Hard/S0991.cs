@@ -1,19 +1,16 @@
-﻿using System.Collections;
+﻿namespace LeetCode.Solutions.Hard;
 
-namespace LeetCode.Solutions.Hard;
-
-internal class S0991 : SolutionBase
+internal class S0991 : SingleResultSolution<int>
 {
     public override int Number => 991;
 
     public override string Name => "Broken Calculator";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
         int startValue = _reader.ReadInt();
         int target = _reader.ReadInt();
-        int result = BrokenCalc(startValue, target);
-        Console.WriteLine(result);
+        return () => BrokenCalc(startValue, target);
     }
 
     public static int BrokenCalc(int startValue, int target)
@@ -30,6 +27,9 @@ internal class S0991 : SolutionBase
 
         return ans + startValue - target;
     }
+
+    private protected new void PrintResult(int result)
+        => _writer.Write(result);
 
     public override string Decription
         => @"There is a broken calculator that has the integer startValue on its display initially. In one operation, you can:

@@ -1,27 +1,33 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-public class S0013 : SolutionBase
+public class S0013 : SingleResultSolution<int>
 {
     public override int Number => 13;
 
     public override string Name => "Roman to Integer";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
-        string s = Console.ReadLine() ?? throw new ArgumentNullException();
+        string s = _reader.ReadStr();
+        return () => Parce(s);
+    }
+
+    private static int Parce(string s)
+    {
         int value = 0;
         Roman last = Roman.None;
-        for(int i = s.Length - 1; i >= 0; i--)
+        for (int i = s.Length - 1; i >= 0; i--)
         {
             char c = s[i];
             Roman current = CharToRoman(c);
-            if(current >= last)
+            if (current >= last)
                 value += (int)current;
             else
                 value -= (int)current;
             last = (Roman)Math.Max((int)last, (int)current);
         }
-        Console.WriteLine(value);
+
+        return value;
     }
 
     private static Roman CharToRoman(char symbol)

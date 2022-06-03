@@ -1,17 +1,17 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Medium;
-public class S0002 : SolutionBase
+public class S0002 : SingleResultSolution<ListNode>
 {
     public override int Number => 2;
 
     public override string Name => "Add Two Numbers";
 
-    public override void Run()
+    private protected override Func<ListNode> CreateExecutionMethod()
     {
         var first = _reader.ReadLinkedList();
         var second = _reader.ReadLinkedList();
-        AddTwoNumbers(first, second).ToConsole();
+        return () => AddTwoNumbers(first, second);
     }
     public static ListNode AddTwoNumbers(ListNode l1, ListNode? l2)
     {

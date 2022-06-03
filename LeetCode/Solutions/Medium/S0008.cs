@@ -1,15 +1,15 @@
 ﻿namespace LeetCode.Solutions.Medium;
-internal class S0008 : SolutionBase
+
+internal class S0008 : SingleResultSolution<int>
 {
     public override int Number => 8;
 
     public override string Name => "String to Integer (atoi)";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
         string str = _reader.ReadStr();
-        int result = MyAtoi(str);
-        Console.WriteLine(result);
+        return () => MyAtoi(str);
     }
 
     private static int MyAtoi(string s)

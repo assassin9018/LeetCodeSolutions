@@ -1,4 +1,6 @@
-﻿namespace LeetCode.DataStructures;
+﻿using System.Text;
+
+namespace LeetCode.DataStructures;
 
 public class ListNode
 {
@@ -21,16 +23,17 @@ public class ListNode
         this.next = next;
     }
 
-    public void ToConsole()
+    public override string ToString()
     {
+        StringBuilder sb = new();
         ListNode? head = this;
-        while(head != null)
+        while (head != null)
         {
-            Console.Write(head.val);
+            sb.Append(head.val).Append(' ');
             head = head.next;
         }
-        Console.WriteLine();
-    }
+        sb.AppendLine();
 
-    public override string ToString() => val.ToString();
+        return sb.ToString();
+    }
 }

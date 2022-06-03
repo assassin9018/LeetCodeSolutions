@@ -1,15 +1,15 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-public class S1342 : SolutionBase
+public class S1342 : SingleResultSolution<int>
 {
     public override int Number => 1342;
 
     public override string Name => "Number of Steps to Reduce a Number to Zero";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
         int value = _reader.ReadInt();
-        Console.WriteLine(NumberOfSteps(value));
+        return () => NumberOfSteps(value);
     }
 
     public static int NumberOfSteps(int num)

@@ -1,20 +1,18 @@
 ﻿namespace LeetCode.Solutions.Easy;
-public class S1672 : SolutionBase
+public class S1672 : SingleResultSolution<int>
 {
     public override int Number => 1672;
 
     public override string Name => "Richest Customer Wealth";
 
-    public override void Run()
+    private protected override Func<int> CreateExecutionMethod()
     {
         int[][] accounts = _reader.Read2Array();
-        Console.WriteLine(MaximumWealth(accounts));
+        return () => MaximumWealth(accounts);
     }
 
-    public static int MaximumWealth(int[][] accounts)
-    {
-        return accounts.Select(x => x.Sum()).Max();
-    }
+    public static int MaximumWealth(int[][] accounts) 
+        => accounts.Select(x => x.Sum()).Max();
 
     public override string Decription =>
 @"You are given an m x n integer grid accounts where accounts[i][j] is the amount of money the i​​​​​​​​​​​th​​​​ customer has in the j​​​​​​​​​​​th​​​​ bank. Return the wealth that the richest customer has.

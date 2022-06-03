@@ -2,16 +2,16 @@
 
 namespace LeetCode.Solutions.Easy;
 
-public class S0234 : SolutionBase
+public class S0234 : SingleResultSolution<bool>
 {
     public override int Number => 234;
 
     public override string Name => "Palindrome Linked List";
 
-    public override void Run()
+    private protected override Func<bool> CreateExecutionMethod()
     {
         ListNode head = _reader.ReadLinkedList();
-        Console.WriteLine(IsPalindrome(head));
+        return () => IsPalindrome(head);
     }
 
     public static bool IsPalindrome(ListNode head)
@@ -19,7 +19,7 @@ public class S0234 : SolutionBase
         byte[] bytes = GetArray(head);
         bool isTrue = true;
         int middle = bytes.Length / 2;
-        for(int i = 0; i < middle && isTrue; i++)
+        for (int i = 0; i < middle && isTrue; i++)
             isTrue = bytes[i] == bytes[bytes.Length - i - 1];
 
         return isTrue;
@@ -29,7 +29,7 @@ public class S0234 : SolutionBase
     {
         int length = Count(head);
         byte[] bytes = new byte[length];
-        for(int i = 0; i < bytes.Length; i++)
+        for (int i = 0; i < bytes.Length; i++)
         {
             bytes[i] = (byte)head!.val;
             head = head.next!;
@@ -41,7 +41,7 @@ public class S0234 : SolutionBase
     {
         int i = 0;
         var h = head;
-        while(h != null)
+        while (h != null)
         {
             i++;
             h = h.next;

@@ -1,16 +1,16 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-public class S0383 : SolutionBase
+public class S0383 : SingleResultSolution<bool>
 {
     public override int Number => 383;
 
     public override string Name => "Ransom Note";
 
-    public override void Run()
+    private protected override Func<bool> CreateExecutionMethod()
     {
-        string ransomNote = Console.ReadLine() ?? throw new ArgumentNullException();
-        string magazine = Console.ReadLine() ?? throw new ArgumentNullException();
-        Console.WriteLine(CanConstruct(ransomNote, magazine));
+        string ransomNote = _reader.ReadStr();
+        string magazine = _reader.ReadStr();
+        return () => CanConstruct(ransomNote, magazine);
     }
 
     public static bool CanConstruct(string ransomNote, string magazine)

@@ -1,20 +1,20 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Hard;
-public class S0023 : SolutionBase
+public class S0023 : SingleResultSolution<ListNode>
 {
     public override int Number => 23;
 
     public override string Name => "Merge k Sorted Lists";
 
-    public override void Run()
+    private protected override Func<ListNode> CreateExecutionMethod()
     {
         int listsCount = _reader.ReadInt("Введите кол-во списков");
         ListNode[] nodes = new ListNode[listsCount];
         for(int i = 0; i < listsCount; i++)
             nodes[i] = _reader.ReadLinkedList("Введите отсортированный по возврастанию список");
 
-        MergeKLists(nodes).ToConsole();
+        return () => MergeKLists(nodes);
     }
 
     public static ListNode MergeKLists(ListNode[] lists)

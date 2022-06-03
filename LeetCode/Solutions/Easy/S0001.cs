@@ -1,18 +1,10 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-public class S0001 : SolutionBase
+public class S0001 : EnumerableResultSolution<int>
 {
     public override int Number => 1;
 
     public override string Name => "Two Sum";
-
-    public override void Run()
-    {
-        var nums = _reader.ReadArray("nums");
-        int target = _reader.ReadInt("target");
-        var twoSum = TwoSum(nums, target);
-        Console.WriteLine($"{twoSum[0]} {twoSum[1]}");
-    }
 
     public static int[] TwoSum(int[] nums, int target)
     {
@@ -23,6 +15,13 @@ public class S0001 : SolutionBase
                     return new[] { i, j };
             }
         return new[] { -1, -1 };
+    }
+
+    private protected override Func<int[]> CreateExecutionMethod()
+    {
+        var nums = _reader.ReadArray("nums");
+        int target = _reader.ReadInt("target");
+        return () => TwoSum(nums, target);
     }
 
     public override string Decription =>

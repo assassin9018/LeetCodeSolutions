@@ -1,16 +1,14 @@
 ﻿namespace LeetCode.Solutions.Easy
 {
-    public class S1365 : SolutionBase
+    public class S1365 : EnumerableResultSolution<int>
     {
         public override int Number => 1365;
         public override string Name => "How Many Numbers Are Smaller Than the Current Number";
 
-        public override void Run()
+        private protected override Func<IEnumerable<int>> CreateExecutionMethod()
         {
             var arr = _reader.ReadArray();
-            arr = SmallerNumbersThanCurrent(arr);
-            foreach(int x in arr)
-                Console.WriteLine(x);
+            return () => SmallerNumbersThanCurrent(arr);
         }
 
         private static int[] SmallerNumbersThanCurrent(int[] nums)

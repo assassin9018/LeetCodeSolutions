@@ -1,16 +1,16 @@
 ﻿namespace LeetCode.Solutions.Medium;
 
-public class S0050 : SolutionBase
+public class S0050 : SingleResultSolution<double>
 {
     public override int Number => 50;
 
     public override string Name => "Pow(x, n)";
 
-    public override void Run()
+    private protected override Func<double> CreateExecutionMethod()
     {
         double x = _reader.ReadDouble();
         int n = _reader.ReadInt();
-        Console.WriteLine(MyPow(x, n));
+        return () => MyPow(x, n);
     }
     private static double MyPow(double x, int n)
     {

@@ -1,8 +1,10 @@
-﻿namespace LeetCode.Solutions
+﻿using System.Diagnostics;
+
+namespace LeetCode.Solutions
 {
-    public abstract class SolutionBase : IIssueSolution
+    public abstract class SolutionBase<T> : IIssueSolution
     {
-        protected internal readonly IReadHelper _reader;
+        private protected readonly IReadHelper _reader;
 
         public abstract int Number { get; }
         public abstract string Name { get; }
@@ -18,6 +20,18 @@
             _reader = reader;
         }
 
-        public abstract void Run();
+        public void Run()
+        {
+            Func<T> solutionMethod = CreateExecutionMethod();
+            Stopwatch stopwatch = Stopwatch.StartNew();
+            T result = solutionMethod.Invoke();
+            stopwatch.Stop();
+            Console.WriteLine($"Execution time {stopwatch.Elapsed.TotalSeconds} sec.");
+            PrintResult(result);
+        }
+
+        private protected abstract void PrintResult(T result);
+
+        private protected abstract Func<T> CreateExecutionMethod();
     }
 }

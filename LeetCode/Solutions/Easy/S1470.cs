@@ -1,16 +1,15 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-internal class S1470 : SolutionBase
+internal class S1470 : EnumerableResultSolution<int>
 {
     public override int Number => 1470;
 
     public override string Name => "Shuffle the Array";
 
-    public override void Run()
+    private protected override Func<IEnumerable<int>> CreateExecutionMethod()
     {
         int[] arr = _reader.ReadArray("Введите массив с чётным количество эллементов", (arr)=> arr.Length % 2 == 0);
-        arr = Shuffle(arr, arr.Length / 2);
-        Console.WriteLine(string.Join(',', arr.Select(x => x.ToString())));
+        return () => Shuffle(arr, arr.Length / 2);
     }
 
     public static int[] Shuffle(int[] nums, int n)

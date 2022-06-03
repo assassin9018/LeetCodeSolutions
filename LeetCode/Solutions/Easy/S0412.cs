@@ -1,16 +1,15 @@
 ﻿namespace LeetCode.Solutions.Easy;
 
-public class S0412 : SolutionBase
+public class S0412 : EnumerableResultSolution<string>
 {
     public override int Number => 412;
 
     public override string Name => "Fizz Buzz";
 
-    public override void Run()
+    private protected override Func<IEnumerable<string>> CreateExecutionMethod()
     {
         int n = _reader.ReadInt();
-        foreach(string s in FizzBuzz(n))
-            Console.WriteLine(s);
+        return () => FizzBuzz(n);
     }
 
     public static IList<string> FizzBuzz(int n)

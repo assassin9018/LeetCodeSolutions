@@ -1,17 +1,16 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Easy;
-public class S0876 : SolutionBase
+public class S0876 : SingleResultSolution<ListNode>
 {
     public override int Number => 876;
 
     public override string Name => "Middle of the Linked List";
 
-    public override void Run()
+    private protected override Func<ListNode> CreateExecutionMethod()
     {
-        ListNode? head = _reader.ReadLinkedList();
-        head = MiddleNode(head);
-        head.ToConsole();
+        ListNode head = _reader.ReadLinkedList();
+        return () => MiddleNode(head);
     }
 
     public static ListNode MiddleNode(ListNode head) 
