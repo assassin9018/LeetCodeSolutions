@@ -51,17 +51,25 @@ internal class ConsoleReadHelper : StringParser, IReadHelper
 
         Console.WriteLine(message);
         int[]? result = null;
-        while (result is null || !(filter?.Invoke(result) ?? true))
+
+        do
         {
             try
             {
                 string source = Console.ReadLine()!;
                 result = ParceIntArrayStr(source);
+                if (!(filter?.Invoke(result) ?? true))
+                {
+                    result = null;
+                    Console.WriteLine($"Не корректный ввод данных.\n{message}");
+                }
             }
-            catch { }
-            if (result is null)
+            catch
+            {
                 Console.WriteLine($"Не корректный ввод данных.\n{message}");
-        }
+            }
+
+        } while (result is null);
         return result;
     }
 

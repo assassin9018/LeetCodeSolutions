@@ -2,16 +2,16 @@
 
 public class StringParser
 {
-    private protected int[][] Parce2IntArrayStr(string str)
+    private protected static int[][] Parce2IntArrayStr(string str)
     {
         var source = str.Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
         List<int[]> result = new();
         for (int i = 0; i < source.Length; i += 2)
-            result.Add(source[i].Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x)).ToArray());
+            result.Add(source[i].Trim().Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x.Trim())).ToArray());
 
         return result.ToArray();
     }
 
-    private protected int[] ParceIntArrayStr(string str)
-        => str.Split(',').Select(x => int.Parse(x)).ToArray();
+    private protected static int[] ParceIntArrayStr(string str)
+        => str.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x.Trim())).ToArray();
 }

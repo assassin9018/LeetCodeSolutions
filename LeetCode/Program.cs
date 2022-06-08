@@ -9,35 +9,39 @@ public class Program
     public static void Main(string[] args)
     {
         Console.WriteLine("Select task number or enter -list for show all task numbers.");
-        while(true)
+        while (true)
         {
             string? command = Console.ReadLine();
-            if(command is null)
+            if (command is null)
                 continue;
-            if(command.Equals("-list", StringComparison.OrdinalIgnoreCase))
+            if (command.Equals("-list", StringComparison.OrdinalIgnoreCase))
                 ShowSolutionsList();
-            else
-                TryExecuteSolution(command);
+            else if (!TryExecuteSolution(command))
+                Console.WriteLine("Command not found.");
         }
     }
 
     private static void ShowSolutionsList()
     {
-        foreach(var solution in _solutions.Values)
+        foreach (var solution in _solutions.Values)
             Console.WriteLine($"{solution.Number} {solution.Name}");
     }
 
-    private static void TryExecuteSolution(string command)
+    private static bool TryExecuteSolution(string command)
     {
-        if(!int.TryParse(command, out int solutionId) || !_solutions.TryGetValue(solutionId, out IIssueSolution? solution))
-            return;
-        try
-        {
-            solution.Run();
-        }
-        catch
-        {
-            Console.WriteLine("Something went wrong");
-        }
+        if (int.TryParse(command, out int solutionId))
+            if (_solutions.TryGetValue(solutionId, out IIssueSolution? solution))
+                try
+                {
+                    solution.Run();
+                    return true;
+                }
+                catch
+                {
+                    Console.WriteLine("Something went wrong");
+                }
+            else
+                Console.WriteLine($"There isn't solution for this task({solutionId}).");
+        return false;
     }
 }
