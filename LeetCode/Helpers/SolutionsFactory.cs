@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace LeetCode;
+namespace LeetCode.Helpers;
 
 public class SolutionsFactory
 {

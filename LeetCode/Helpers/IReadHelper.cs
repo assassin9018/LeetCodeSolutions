@@ -1,6 +1,6 @@
 ﻿using LeetCode.DataStructures;
 
-namespace LeetCode
+namespace LeetCode.Helpers
 {
     public interface IReadHelper
     {

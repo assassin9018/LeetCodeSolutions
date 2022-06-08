@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using LeetCode.Helpers;
+using System.Diagnostics;
 
 namespace LeetCode.Solutions
 {

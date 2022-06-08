@@ -1,4 +1,6 @@
-﻿namespace LeetCode.Solutions
+﻿using LeetCode.Helpers;
+
+namespace LeetCode.Solutions
 {
     public abstract class SingleResultSolution<T> : SolutionBase<T>
     {
