@@ -1,4 +1,6 @@
-﻿namespace LeetCode;
+﻿using LeetCode.Helpers;
+
+namespace LeetCode;
 
 public class Program
 {
