@@ -2,7 +2,7 @@
 
 namespace LeetCode.Helpers
 {
-    internal class FileReadHelper : StringParser, IDisposable, IReadHelper
+    internal class FileReadHelper : BaseReadHelper, IDisposable, IReadHelper
     {
         private readonly StreamReader _streamReader;
         private bool disposedValue;
@@ -12,30 +12,12 @@ namespace LeetCode.Helpers
             _streamReader = new StreamReader(fileName);
         }
 
-        public int ReadInt(string? message = null) 
-            => int.Parse(ReadStr());
+        protected override string GetStringForParsing()
+            => _streamReader.ReadLine() ?? throw new ArgumentNullException(nameof(_streamReader), "End of stream.");
 
-        public double ReadDouble(string? message = null) 
-            => double.Parse(ReadStr());
-
-        public int[][] Read2Array(string? message = null) 
-            => Parce2IntArrayStr(ReadStr(message));
-
-        public int[] ReadArray(string? message = null, Func<int[], bool>? _ = null) 
-            => ParceIntArrayStr(ReadStr(message));
-
-        public ListNode ReadLinkedList(string? message = null)
+        protected override void PringMessage(string message)
         {
-            var list = ReadArray(message) ?? throw new InvalidOperationException();
-            var head = new ListNode(list[0], null);
-            var t = head;
-            foreach (int item in list.Skip(1))
-            {
-                t.next = new ListNode(item, null);
-                t = t.next;
-            }
-
-            return head;
+            //not required
         }
 
         protected virtual void Dispose(bool disposing)
@@ -50,9 +32,6 @@ namespace LeetCode.Helpers
                 disposedValue = true;
             }
         }
-
-        public string ReadStr(string? message = null) 
-            => _streamReader.ReadLine() ?? throw new ArgumentNullException(nameof(_streamReader), "End of stream.");
 
         public void Dispose()
         {

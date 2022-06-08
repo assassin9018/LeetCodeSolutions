@@ -4,16 +4,16 @@ namespace LeetCode.Solutions;
 
 public abstract class EnumerableResultSolution<T> : SolutionBase<IEnumerable<T>>
 {
-    private protected readonly IWriteHelper _writer;
+    private protected readonly IWriteHelper<T> _writer;
 
     protected EnumerableResultSolution()
     {
-        _writer = new ConsoleWriteHelper();
+        _writer = new ConsoleWriteHelper<T>();
     }
 
-    protected EnumerableResultSolution(IReadHelper reader) : base(reader)
+    protected EnumerableResultSolution(IReadHelper reader, IWriteHelper<T> writer) : base(reader)
     {
-        _writer = new ConsoleWriteHelper();
+        _writer = writer;
     }
 
     private protected override void PrintResult(IEnumerable<T> result)
