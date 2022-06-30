@@ -42,41 +42,6 @@ public class S0041 : SingleResultSolution<int>
         return nums.Length + 1;
     }
 
-    private static int FirstMissingPositiveJavaStolen(int[] nums)
-    {
-        bool one = false;
-
-        //step 1 
-        for (int i = 0; i < nums.Length; i++) //put in range means 1<=nums<=n
-        {
-            if (nums[i] == 1)
-                one = true;
-            if (!(nums[i] >= 1 && nums[i] <= nums.Length))
-                nums[i] = 1;
-        }
-        // System.out.println(one);
-        if (one == false)
-            return 1;   // because 1 is not present 
-                        // System.out.println(Arrays.toString(nums));
-                        // step 2 --> put it coresponding indexes to minus
-
-        for (int i = 0; i < nums.Length; i++)
-            nums[Math.Abs(nums[i]) - 1] = -Math.Abs(nums[Math.Abs(nums[i]) - 1]);
-
-
-        //step 3 iterate over array again and see which index is not positive
-
-
-        for (int i = 0; i < nums.Length; i++)
-        {
-            if (nums[i] > 0)
-                return i + 1;
-        }
-
-
-        return nums.Length + 1;
-    }
-
     public override string Decription => @"Given an unsorted integer array nums, return the smallest missing positive integer.
 You must implement an algorithm that runs in O(n) time and uses constant extra space.
 
