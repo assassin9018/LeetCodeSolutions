@@ -28,9 +28,6 @@ internal class S0991 : SingleResultSolution<int>
         return ans + startValue - target;
     }
 
-    private protected new void PrintResult(int result)
-        => _writer.Write(result);
-
     public override string Decription
         => @"There is a broken calculator that has the integer startValue on its display initially. In one operation, you can:
 

@@ -1,6 +1,6 @@
 ﻿namespace LeetCode.Solutions.Medium;
 
-internal class S0969 : EnumerableResultSolution<int>
+public class S0969 : EnumerableResultSolution<int>
 {
     public override int Number => 969;
 

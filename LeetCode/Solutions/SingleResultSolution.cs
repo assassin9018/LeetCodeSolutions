@@ -4,19 +4,19 @@ namespace LeetCode.Solutions
 {
     public abstract class SingleResultSolution<T> : SolutionBase<T>
     {
-        private protected readonly IWriteHelper<T> _writer;
+        private protected readonly IWriteHelper<T> Writer;
 
         protected SingleResultSolution()
         {
-            _writer = new ConsoleWriteHelper<T>();
+            Writer = new ConsoleWriteHelper<T>();
         }
 
         protected SingleResultSolution(IReadHelper reader, IWriteHelper<T> writer) : base(reader)
         {
-            _writer = writer;
+            Writer = writer;
         }
 
         private protected override void PrintResult(T result)
-            => _writer.Write(result);
+            => Writer.Write(result);
     }
 }
