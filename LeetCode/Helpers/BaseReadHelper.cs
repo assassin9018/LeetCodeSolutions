@@ -26,7 +26,21 @@ public abstract class BaseReadHelper : IReadHelper
 
         PringMessage(message);
 
-        return int.Parse(GetStringForParsing());
+        var stringForParsing = GetStringForParsing();
+        
+        return int.Parse(stringForParsing);
+    }
+    
+    public long ReadLong(string? message = null)
+    {
+        if (message is null)
+            message = "Введите целое число";
+
+        PringMessage(message);
+
+        var stringForParsing = GetStringForParsing();
+        
+        return long.Parse(stringForParsing);
     }
 
     public double ReadDouble(string? message = null)
