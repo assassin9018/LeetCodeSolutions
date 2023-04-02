@@ -15,7 +15,7 @@ public class S0041Test
     [DataRow("1,1", 2)]
     [DataRow("1", 2)]
     [DataRow("-1,4,2,1,9,10", 3)]
-    public void TestMethod1(string input, int expected)
+    public void Test(string input, int expected)
     {
         TestReadHelper reader = new(new[] { input });
         TestWriteHelper<int> writer = new();
