@@ -1,7 +1,17 @@
-﻿namespace LeetCode.Solutions.Easy;
+﻿using LeetCode.Helpers;
+
+namespace LeetCode.Solutions.Easy;
 
 public class S0013 : SingleResultSolution<int>
 {
+    public S0013()
+    {
+    }
+
+    public S0013(IReadHelper reader, IWriteHelper<int> writer) : base(reader, writer)
+    {
+    }
+
     public override int Number => 13;
 
     public override string Name => "Roman to Integer";
@@ -43,18 +53,6 @@ public class S0013 : SingleResultSolution<int>
             'M' => Roman.M,
             _ => throw new NotSupportedException(nameof(symbol)),
         };
-    }
-
-    private enum Roman
-    {
-        None = 0,
-        I = 1,
-        V = 5,
-        X = 10,
-        L = 50,
-        C = 100,
-        D = 500,
-        M = 1000,
     }
 
     public override string Decription =>
