@@ -10,12 +10,10 @@ public class SolutionsFactory
 
     public IEnumerable<IIssueSolution> CreateSolutions()
     {
-        return Assembly
-            .GetAssembly(typeof(SolutionsFactory))
-            !.GetTypes()
-            .Where(x => x.IsClass && x.GetInterface(nameof(IIssueSolution)) != null)
-            .Select(x => x.GetConstructor(Type.EmptyTypes)?.Invoke(Array.Empty<object>()))
-            .Where(x => x != null)
+        return typeof(IIssueSolution).Assembly
+            .GetTypes()
+            .Where(x => x.IsClass && !x.IsAbstract && x.IsAssignableTo(typeof(IIssueSolution)))
+            .Select(Activator.CreateInstance)
             .Cast<IIssueSolution>()
             .OrderBy(x => x.Number);
     }

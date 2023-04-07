@@ -1,8 +1,9 @@
-﻿using LeetCode.Helpers;
+﻿using System.Collections;
+using LeetCode.Helpers;
 
 namespace LeetCode.Solutions;
 
-public abstract class EnumerableResultSolution<T> : SolutionBase<IEnumerable<T>>
+public abstract class EnumerableResultSolution<T> : SolutionBase<IEnumerable>
 {
     private protected readonly IWriteHelper<T> _writer;
 
@@ -16,6 +17,12 @@ public abstract class EnumerableResultSolution<T> : SolutionBase<IEnumerable<T>>
         _writer = writer;
     }
 
-    private protected override void PrintResult(IEnumerable<T> result)
-        => _writer.Write(result);
+    private protected override void PrintResult(IEnumerable result)
+    {
+        if (result is IEnumerable<T> enumerable)
+            _writer.Write(enumerable);
+        else
+            foreach (var item in result.Cast<IEnumerable>())
+                PrintResult(item);
+    }
 }
