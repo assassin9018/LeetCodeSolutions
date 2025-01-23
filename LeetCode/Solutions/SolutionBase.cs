@@ -24,9 +24,11 @@ public abstract class SolutionBase<T> : IIssueSolution
     public void Run()
     {
         Func<T> solutionMethod = CreateExecutionMethod();
+
         Stopwatch stopwatch = Stopwatch.StartNew();
         T result = solutionMethod.Invoke();
         stopwatch.Stop();
+
         Console.WriteLine($"Execution time {stopwatch.Elapsed.TotalSeconds} sec.");
         PrintResult(result);
     }

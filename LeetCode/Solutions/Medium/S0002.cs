@@ -1,6 +1,7 @@
 ﻿using LeetCode.DataStructures;
 
 namespace LeetCode.Solutions.Medium;
+
 public class S0002 : SingleResultSolution<ListNode>
 {
     public override int Number => 2;
