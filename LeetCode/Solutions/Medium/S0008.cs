@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Medium;
+﻿using LeetCode.Helpers;
 
-internal class S0008 : SingleResultSolution<int>
+namespace LeetCode.Solutions.Medium;
+
+internal class S0008(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
     public override int Number => 8;
 
@@ -26,33 +28,29 @@ internal class S0008 : SingleResultSolution<int>
 
     private static int HardSearch(string source)
     {
-        int modifier = 1, index = 0, result = 0;
+        int index = 0, sign = 1;
+        long result = 0;
         if (source[0] == '-')
         {
             index = 1;
-            modifier = -1;
+            sign = -1;
         }
         else if (source[0] == '+')
             index = 1;
-        char current = default;
-        try
-        {
-            checked
-            {
-                while (index < source.Length && char.IsDigit(current = source[index++]))
-                {
-                    int val = int.Parse(current.ToString());
-                    if (val != 0 || result > 0)
-                        result = result * 10 + val;
-                }
 
-                return result * modifier;
-            }
-        }
-        catch (OverflowException)
+        char current;
+
+        while (index < source.Length && char.IsDigit(current = source[index++]) && (int.MinValue <= result && result <= int.MaxValue))
         {
-            return modifier == 1 ? int.MaxValue : int.MinValue;
+            int val = current - '0';
+            result = result * 10 + val;
         }
+
+        result *= sign;
+        if (int.MinValue <= result && result <= int.MaxValue)
+            return (int)result;
+
+        return int.MaxValue + ((sign & 0b10) >> 1); // немного магии, чтобы избежать условий с проверкой знака и вернуть int.MinValue или int.MaxValue
     }
 
     public override string Decription
