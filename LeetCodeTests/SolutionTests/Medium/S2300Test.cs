@@ -8,7 +8,7 @@ public class S2300Test
     [InlineData("1000,1000,1000", "1000,1000,1000", "1000000", new[] { 3, 3, 3 })]
     public void Test(string spells, string potions, string success, int[] expected)
     {
-        TestReadHelper reader = new(new[] { spells, potions, success });
+        TestReadHelper reader = new([spells, potions, success]);
         TestWriteHelper<int> writer = new();
         S2300 solver = new(reader, writer);
         solver.Run();
