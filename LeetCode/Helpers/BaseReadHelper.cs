@@ -11,8 +11,7 @@ public abstract class BaseReadHelper : IReadHelper
 
     public string ReadStr(string? message = null)
     {
-        if (message is null)
-            message = "Введите строку";
+        message ??= "Введите строку";
 
         PringMessage(message);
 
@@ -21,32 +20,30 @@ public abstract class BaseReadHelper : IReadHelper
 
     public int ReadInt(string? message = null)
     {
-        if (message is null)
-            message = "Введите целое число";
+        message ??= "Введите целое число";
 
         PringMessage(message);
 
         var stringForParsing = GetStringForParsing();
-        
+
         return int.Parse(stringForParsing);
     }
-    
+
     public long ReadLong(string? message = null)
     {
-        if (message is null)
-            message = "Введите целое число";
+        message ??= "Введите целое число";
 
         PringMessage(message);
 
         var stringForParsing = GetStringForParsing();
-        
+
         return long.Parse(stringForParsing);
     }
 
     public double ReadDouble(string? message = null)
     {
-        if (message is null)
-            message = "Введите число с плавающей запятой";
+        message ??= "Введите число с плавающей запятой";
+
         PringMessage(message);
 
         return double.Parse(GetStringForParsing());
@@ -54,24 +51,38 @@ public abstract class BaseReadHelper : IReadHelper
 
     public int[][] Read2Array(string? message = null)
     {
-        if (message is null)
-            message = "Введите двумерный массив (пр: [1,2,3],[4,5,6],[7,8,9])";
+        message ??= "Введите двумерный массив (пр: [[1,2,3],[4,5,6],[7,8,9]])";
 
         PringMessage(message);
-        string str = GetStringForParsing();
+        string str = GetStringForParsing().Trim();
 
-        var source = str.Split(new[] { '[', ']' }, StringSplitOptions.RemoveEmptyEntries);
-        List<int[]> result = new();
-        for (int i = 0; i < source.Length; i += 2)
-            result.Add(source[i].Trim().Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x.Trim())).ToArray());
+        if (str.Length == 0 || str[0] != '[' || str[^1] != ']')
+            throw new ArgumentException("Двумерный массив должен начинаться на [ и закансиваться на ]");
 
-        return result.ToArray();
+        var source = str[1..^1].Split(["],", "]"], StringSplitOptions.RemoveEmptyEntries);
+        if (source.All(x => x[0] != '['))
+            throw new ArgumentException("Неверный формат. Каждая строка в думерном массиве должна начинаться на [ и закансиваться на ]");
+
+        List<int[]> result = [];
+        foreach (var raw in source.Select(x => x[1..]))
+        {
+            var parsedValue = raw
+                .Trim()
+                .Split(',')
+                .Select(x => x.Trim())
+                .Where(x => x.Length > 0)
+                .Select(int.Parse)
+                .ToArray();
+
+            result.Add(parsedValue);
+        }
+
+        return [.. result];
     }
 
     public int[] ReadArray(string? message = null, Func<int[], bool>? filter = null)
     {
-        if (message is null)
-            message = "Введите массив (пр: 1,2,3)";
+        message ??= "Введите массив (пр: 1,2,3)";
 
         PringMessage(message);
         int[]? result = null;
@@ -94,13 +105,13 @@ public abstract class BaseReadHelper : IReadHelper
             }
 
         } while (result is null);
+
         return result;
     }
 
     public ListNode ReadLinkedList(string? message = null)
     {
-        if (message is null)
-            message = "Введите список (пр: 1,2,3)";
+        message ??= "Введите список (пр: 1,2,3)";
 
         var list = ReadArray(message) ?? throw new InvalidOperationException();
         var head = new ListNode(list[0], null);
