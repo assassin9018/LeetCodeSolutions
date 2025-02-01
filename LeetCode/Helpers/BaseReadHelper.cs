@@ -57,11 +57,11 @@ public abstract class BaseReadHelper : IReadHelper
         string str = GetStringForParsing().Trim();
 
         if (str.Length == 0 || str[0] != '[' || str[^1] != ']')
-            throw new ArgumentException("Двумерный массив должен начинаться на [ и закансиваться на ]");
+            throw new ArgumentException("Двумерный массив должен начинаться на [ и заканчиваться на ]");
 
         var source = str[1..^1].Split(["],", "]"], StringSplitOptions.RemoveEmptyEntries);
         if (source.All(x => x[0] != '['))
-            throw new ArgumentException("Неверный формат. Каждая строка в думерном массиве должна начинаться на [ и закансиваться на ]");
+            throw new ArgumentException("Неверный формат. Каждая строка в двумерном массиве должна начинаться на [ и заканчиваться на ]");
 
         List<int[]> result = [];
         foreach (var raw in source.Select(x => x[1..]))
