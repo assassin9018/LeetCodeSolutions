@@ -8,7 +8,7 @@ public class S0001(IReadHelper reader, IWriteHelper<int> writer) : EnumerableRes
 
     public override string Name => "Two Sum";
 
-    public static int[] TwoSum(int[] nums, int target)
+    private static int[] TwoSum(int[] nums, int target)
     {
         for(int i = 0; i < nums.Length; i++)
             for(int j = i + 1; j < nums.Length; j++)
