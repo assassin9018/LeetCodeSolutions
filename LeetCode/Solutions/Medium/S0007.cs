@@ -2,7 +2,7 @@
 
 namespace LeetCode.Solutions.Medium;
 
-internal class S0007(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
+internal class S0007: SingleResultSolution<int>
 {
     public override int Number => 7;
     public override string Name => "Reverse Integer";
@@ -30,7 +30,7 @@ internal class S0007(IReadHelper reader, IWriteHelper<int> writer) : SingleResul
         return (int)result;
     }
 
-    public override string Decription
+    public override string Description
         =>
         """
         Given a signed 32-bit integer x, return x with its digits reversed. If reversing x causes the value to go outside the signed 32-bit integer range [-231, 231 - 1], then return 0.

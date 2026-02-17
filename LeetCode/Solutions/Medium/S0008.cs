@@ -53,7 +53,7 @@ internal class S0008(IReadHelper reader, IWriteHelper<int> writer) : SingleResul
         return int.MaxValue + ((sign & 0b10) >> 1); // немного магии, чтобы избежать условий с проверкой знака и вернуть int.MinValue или int.MaxValue
     }
 
-    public override string Decription
+    public override string Description
         => @"Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer (similar to C/C++'s atoi function).
 
 The algorithm for myAtoi(string s) is as follows:

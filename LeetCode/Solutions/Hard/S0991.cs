@@ -28,7 +28,7 @@ internal class S0991 : SingleResultSolution<int>
         return ans + startValue - target;
     }
 
-    public override string Decription
+    public override string Description
         => @"There is a broken calculator that has the integer startValue on its display initially. In one operation, you can:
 
 multiply the number on display by 2, or

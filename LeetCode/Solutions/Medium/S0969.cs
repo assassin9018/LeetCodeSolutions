@@ -55,7 +55,7 @@ public class S0969 : EnumerableResultSolution<int>
         return sorted;
     }
 
-    public override string Decription => @"Given an array of integers arr, sort the array by performing a series of pancake flips.
+    public override string Description => @"Given an array of integers arr, sort the array by performing a series of pancake flips.
 
 In one pancake flip we do the following steps:
 Choose an integer k where 1 <= k <= arr.length.

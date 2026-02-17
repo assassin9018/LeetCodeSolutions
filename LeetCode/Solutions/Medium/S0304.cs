@@ -53,7 +53,7 @@ internal class S0304 : SingleResultSolution<int>
          */
     }
 
-    public override string Decription => @"Given a 2D matrix matrix, handle multiple queries of the following type:
+    public override string Description => @"Given a 2D matrix matrix, handle multiple queries of the following type:
 
 Calculate the sum of the elements of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
 Implement the NumMatrix class:

@@ -15,7 +15,7 @@ internal class S0268 : SingleResultSolution<int>
     public static int MissingNumber(int[] nums) 
         => -Enumerable.Range(0, nums.Length).Select(x => nums[x] - x).Sum() + nums.Length;
 
-    public override string Decription => @"Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
+    public override string Description => @"Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
 
 Example 1:
 Input: nums = [3,0,1]

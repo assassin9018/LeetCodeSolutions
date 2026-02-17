@@ -25,7 +25,7 @@ public class S3498(IReadHelper reader, IWriteHelper<int> writer) : SingleResultS
         return result;
     }
 
-    public override string Decription
+    public override string Description
         => """
            Given a string s, calculate its reverse degree.
            The reverse degree is calculated as follows:

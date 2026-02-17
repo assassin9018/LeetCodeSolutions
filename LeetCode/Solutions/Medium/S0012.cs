@@ -37,7 +37,7 @@ public class S0012 : SingleResultSolution<string>
         return string.Concat(result.Select(x => x.ToString()));
     }
 
-    public override string Decription =>
+    public override string Description =>
         @"Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value

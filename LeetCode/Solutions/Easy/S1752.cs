@@ -29,7 +29,7 @@ public class S1752(IReadHelper reader, IWriteHelper<bool> writer) : SingleResult
         return isSorted;
     }
 
-    public override string Decription
+    public override string Description
         => """
            Given an array nums, return true if the array was originally sorted in non-decreasing order, then rotated some number of positions (including zero). Otherwise, return false.
            There may be duplicates in the original array.

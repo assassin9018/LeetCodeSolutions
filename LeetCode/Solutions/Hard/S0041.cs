@@ -42,7 +42,7 @@ public class S0041 : SingleResultSolution<int>
         return nums.Length + 1;
     }
 
-    public override string Decription => @"Given an unsorted integer array nums, return the smallest missing positive integer.
+    public override string Description => @"Given an unsorted integer array nums, return the smallest missing positive integer.
 You must implement an algorithm that runs in O(n) time and uses constant extra space.
 
 Example 1:

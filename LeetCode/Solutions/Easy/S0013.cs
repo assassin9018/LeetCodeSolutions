@@ -55,7 +55,7 @@ public class S0013 : SingleResultSolution<int>
         };
     }
 
-    public override string Decription =>
+    public override string Description =>
 @"Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 Symbol       Value

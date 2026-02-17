@@ -49,7 +49,7 @@ public class S0234 : SingleResultSolution<bool>
         return i;
     }
 
-    public override string Decription =>
+    public override string Description =>
 @"Given the head of a singly linked list, return true if it is a palindrome.
 
 Example 1:

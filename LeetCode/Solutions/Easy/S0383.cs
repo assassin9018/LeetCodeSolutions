@@ -22,7 +22,7 @@ public class S0383 : SingleResultSolution<bool>
     private static IEnumerable<(char symbol, int count)> GroupBy(string s)
         => s.GroupBy(k => k).Select(x => (x.Key, x.Count()));
 
-    public override string Decription =>
+    public override string Description =>
 @"Given two strings ransomNote and magazine, return true if ransomNote can be constructed from magazine and false otherwise.
 
 Each letter in magazine can only be used once in ransomNote.

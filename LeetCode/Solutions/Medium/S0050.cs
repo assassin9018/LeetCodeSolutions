@@ -21,7 +21,7 @@ public class S0050 : SingleResultSolution<double>
         return result * sign;
     }
 
-    public override string Decription =>
+    public override string Description =>
 @"Implement pow(x, n), which calculates x raised to the power n (i.e., xn).
 
 Example 1:

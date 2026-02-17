@@ -23,7 +23,7 @@ public class S3151(IReadHelper reader, IWriteHelper<bool> writer) : SingleResult
         return isSpecial;
     }
 
-    public override string Decription
+    public override string Description
         =>
             """
             An array is considered special if every pair of its adjacent elements contains two numbers with different parity.

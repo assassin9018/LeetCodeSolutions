@@ -9,7 +9,7 @@ public abstract class SolutionBase<T> : IIssueSolution
 
     public abstract int Number { get; }
     public abstract string Name { get; }
-    public abstract string Decription { get; }
+    public abstract string Description { get; }
 
     protected SolutionBase()
     {
