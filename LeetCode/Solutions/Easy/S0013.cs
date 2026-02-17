@@ -2,16 +2,8 @@
 
 namespace LeetCode.Solutions.Easy;
 
-public class S0013 : SingleResultSolution<int>
+public class S0013(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
-    public S0013()
-    {
-    }
-
-    public S0013(IReadHelper reader, IWriteHelper<int> writer) : base(reader, writer)
-    {
-    }
-
     public override int Number => 13;
 
     public override string Name => "Roman to Integer";

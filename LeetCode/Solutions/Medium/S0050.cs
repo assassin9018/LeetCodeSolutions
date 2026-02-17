@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Medium;
+﻿using LeetCode.Helpers;
 
-public class S0050 : SingleResultSolution<double>
+namespace LeetCode.Solutions.Medium;
+
+public class S0050 (IReadHelper reader, IWriteHelper<double> writer) : SingleResultSolution<double>(reader, writer)
 {
     public override int Number => 50;
 

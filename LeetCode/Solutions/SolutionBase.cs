@@ -11,11 +11,6 @@ public abstract class SolutionBase<T> : IIssueSolution
     public abstract string Name { get; }
     public abstract string Description { get; }
 
-    protected SolutionBase()
-    {
-        _reader = new ConsoleReadHelper();
-    }
-
     protected SolutionBase(IReadHelper reader)
     {
         _reader = reader;

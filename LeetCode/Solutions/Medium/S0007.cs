@@ -2,7 +2,7 @@
 
 namespace LeetCode.Solutions.Medium;
 
-internal class S0007: SingleResultSolution<int>
+internal class S0007(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
     public override int Number => 7;
     public override string Name => "Reverse Integer";

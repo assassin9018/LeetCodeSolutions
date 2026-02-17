@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Easy;
+﻿using LeetCode.Helpers;
 
-public class S0383 : SingleResultSolution<bool>
+namespace LeetCode.Solutions.Easy;
+
+public class S0383(IReadHelper reader, IWriteHelper<bool> writer) : SingleResultSolution<bool>(reader, writer)
 {
     public override int Number => 383;
 

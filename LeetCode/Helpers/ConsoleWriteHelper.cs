@@ -8,9 +8,3 @@ internal class ConsoleWriteHelper<T> : IWriteHelper<T>
     public void Write(T value)
         => Console.WriteLine(value?.ToString());
 }
-
-public interface IWriteHelper<T>
-{
-    void Write(IEnumerable<T> arr);
-    void Write(T value);
-}

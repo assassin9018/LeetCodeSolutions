@@ -2,16 +2,8 @@ using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Medium;
 
-public class S2300 : EnumerableResultSolution<int>
+public class S2300(IReadHelper reader, IWriteHelper<int> writer) : EnumerableResultSolution<int>(reader, writer)
 {
-    public S2300()
-    {
-    }
-
-    public S2300(IReadHelper reader, IWriteHelper<int> writer) : base(reader, writer)
-    {
-    }
-
     public override int Number => 2300;
     public override string Name => "Successful Pairs of Spells and Potions";
 

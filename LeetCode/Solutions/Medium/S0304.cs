@@ -1,5 +1,7 @@
-﻿namespace LeetCode.Solutions.Medium;
-internal class S0304 : SingleResultSolution<int>
+﻿using LeetCode.Helpers;
+
+namespace LeetCode.Solutions.Medium;
+internal class S0304(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
     public override int Number => 304;
 

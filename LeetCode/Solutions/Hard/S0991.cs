@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Hard;
+﻿using LeetCode.Helpers;
 
-internal class S0991 : SingleResultSolution<int>
+namespace LeetCode.Solutions.Hard;
+
+internal class S0991(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
     public override int Number => 991;
 
@@ -13,7 +15,7 @@ internal class S0991 : SingleResultSolution<int>
         return () => BrokenCalc(startValue, target);
     }
 
-    public static int BrokenCalc(int startValue, int target)
+    private static int BrokenCalc(int startValue, int target)
     {
         int ans = 0;
         while (target > startValue)

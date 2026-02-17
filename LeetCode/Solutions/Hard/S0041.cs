@@ -1,16 +1,9 @@
 ﻿using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Hard;
-public class S0041 : SingleResultSolution<int>
+
+public class S0041(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
-    public S0041()
-    {
-    }
-
-    public S0041(IReadHelper reader, IWriteHelper<int> writer) : base(reader, writer)
-    {
-    }
-
     public override int Number => 41;
 
     public override string Name => "First Missing Positive";

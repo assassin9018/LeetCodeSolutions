@@ -2,16 +2,8 @@ using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Medium;
 
-public class S0012 : SingleResultSolution<string>
+public class S0012(IReadHelper reader, IWriteHelper<string> writer) : SingleResultSolution<string>(reader, writer)
 {
-    public S0012()
-    {
-    }
-
-    public S0012(IReadHelper reader, IWriteHelper<string> writer) : base(reader, writer)
-    {
-    }
-
     public override int Number => 12;
     public override string Name => "Integer to Roman";
 

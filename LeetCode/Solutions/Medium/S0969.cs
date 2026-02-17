@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Medium;
+﻿using LeetCode.Helpers;
 
-public class S0969 : EnumerableResultSolution<int>
+namespace LeetCode.Solutions.Medium;
+
+public class S0969(IReadHelper reader, IWriteHelper<int> writer) : EnumerableResultSolution<int>(reader, writer)
 {
     public override int Number => 969;
 

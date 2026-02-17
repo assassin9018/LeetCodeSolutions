@@ -2,16 +2,8 @@
 
 namespace LeetCode.Solutions.Easy;
 
-public class S1710 : SingleResultSolution<int>
+public class S1710(IReadHelper reader, IWriteHelper<int> writer) : SingleResultSolution<int>(reader, writer)
 {
-    public S1710()
-    {
-    }
-
-    public S1710(IReadHelper reader, IWriteHelper<int> writer) : base(reader, writer)
-    {
-    }
-
     public override int Number
         => 1710;
     public override string Name

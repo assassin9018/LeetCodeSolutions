@@ -1,6 +1,8 @@
-﻿namespace LeetCode.Solutions.Easy;
+﻿using LeetCode.Helpers;
 
-public class S0412 : EnumerableResultSolution<string>
+namespace LeetCode.Solutions.Easy;
+
+public class S0412(IReadHelper reader, IWriteHelper<string> writer) : EnumerableResultSolution<string>(reader, writer)
 {
     public override int Number => 412;
 

@@ -1,8 +1,9 @@
 ﻿using LeetCode.DataStructures;
+using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Medium;
 
-public class S0002 : SingleResultSolution<ListNode>
+public class S0002(IReadHelper reader, IWriteHelper<ListNode> writer) : SingleResultSolution<ListNode>(reader, writer)
 {
     public override int Number => 2;
 

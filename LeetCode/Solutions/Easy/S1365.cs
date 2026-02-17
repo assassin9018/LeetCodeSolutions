@@ -1,23 +1,25 @@
-﻿namespace LeetCode.Solutions.Easy
+﻿using LeetCode.Helpers;
+
+namespace LeetCode.Solutions.Easy;
+
+public class S1365(IReadHelper reader, IWriteHelper<int> writer) : EnumerableResultSolution<int>(reader, writer)
 {
-    public class S1365 : EnumerableResultSolution<int>
+    public override int Number => 1365;
+    public override string Name => "How Many Numbers Are Smaller Than the Current Number";
+
+    private protected override Func<IEnumerable<int>> CreateExecutionMethod()
     {
-        public override int Number => 1365;
-        public override string Name => "How Many Numbers Are Smaller Than the Current Number";
+        var arr = _reader.ReadArray();
+        return () => SmallerNumbersThanCurrent(arr);
+    }
 
-        private protected override Func<IEnumerable<int>> CreateExecutionMethod()
-        {
-            var arr = _reader.ReadArray();
-            return () => SmallerNumbersThanCurrent(arr);
-        }
+    private static int[] SmallerNumbersThanCurrent(int[] nums)
+    {
+        return nums.Select(x => nums.Count(n => x > n)).ToArray();
+    }
 
-        private static int[] SmallerNumbersThanCurrent(int[] nums)
-        {
-            return nums.Select(x => nums.Count(n => x > n)).ToArray();
-        }
-
-        public override string Description =>
-@"Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
+    public override string Description =>
+        @"Given the array nums, for each nums[i] find out how many numbers in the array are smaller than it. That is, for each nums[i] you have to count the number of valid j's such that j != i and nums[j] < nums[i].
 
 Return the answer in an array.
 
@@ -48,5 +50,4 @@ Accepted
 296,762
 Submissions
 343,847";
-    }
 }

@@ -4,19 +4,10 @@ using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Hard;
 
-public class S0273 : SingleResultSolution<string>
+public class S0273(IReadHelper reader, IWriteHelper<string> writer) : SingleResultSolution<string>(reader, writer)
 {
     public override int Number => 273;
     public override string Name => "Integer to English Words";
-
-
-    public S0273()
-    {
-    }
-
-    public S0273(IReadHelper reader, IWriteHelper<string> writer) : base(reader, writer)
-    {
-    }
 
 
     private protected override Func<string> CreateExecutionMethod()
@@ -101,13 +92,13 @@ public static class DigitExtensions
 
     public static StringBuilder AppendSuffix(this StringBuilder sb, int num)
         => num switch
-    {
-        100 => sb.Append("Hundred"),
-        1_000 => sb.Append("Thousand"),
-        1_000_000 => sb.Append("Million"),
-        1_000_000_000 => sb.Append("Billion"),
-        _ => throw new NotSupportedException()
-    };
+        {
+            100 => sb.Append("Hundred"),
+            1_000 => sb.Append("Thousand"),
+            1_000_000 => sb.Append("Million"),
+            1_000_000_000 => sb.Append("Billion"),
+            _ => throw new NotSupportedException()
+        };
 
     public static bool TryGetWord(this int val, [MaybeNullWhen(false)] out string word)
         => _wordByDigit.TryGetValue(val, out word);
