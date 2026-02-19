@@ -1,4 +1,3 @@
-using System.Collections;
 using LeetCode.Helpers;
 
 namespace LeetCode.Solutions.Easy;

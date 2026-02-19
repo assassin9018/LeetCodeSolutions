@@ -1,15 +1,15 @@
 namespace LeetCodeTests.SolutionTests.Easy;
 
-public class S3498Tests
+public class S0696Tests
 {
     [Theory]
-    [InlineData("abc", 148)]
-    [InlineData("zaza", 160)]
+    [InlineData("00110011", 6)]
+    [InlineData("10101", 4)]
     public void Test(string s, int expected)
     {
         TestReadHelper reader = new([s]);
         TestWriteHelper<int> writer = new();
-        S3498 solver = new(reader, writer);
+        S0696 solver = new(reader, writer);
         solver.Run();
         writer.LastValue.Should().Be(expected);
     }
